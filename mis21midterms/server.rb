@@ -6,6 +6,10 @@ expenses = []
 
 
 get '/' do 
+	expenses.each do |n|
+		puts n
+	end
+		
 	erb :index
 end
 
@@ -14,16 +18,18 @@ get '/new' do
 end
 
 
-post 'index' do
-	@name = params[:item]
-	@amount = params[:amount]
+post 'index' do	
 	erb :index
 end
 
 post '/save' do
+
 	@id = 0
 	@name = params[:item]
 	@amount = params[:amount]
+	
+	expense = Expense.new(@id+1, @name, @amount)
+	expenses << expense
 	redirect to '/'
 end
 

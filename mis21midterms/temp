@@ -1,0 +1,11 @@
+<% @expenses.each do |n| %>
+	    <%=	puts "#{n}" %>
+	<% end %>
+
+	get '/save' do 
+	redirect to '/'
+end
+
+
+<% %>
+<%  %>
